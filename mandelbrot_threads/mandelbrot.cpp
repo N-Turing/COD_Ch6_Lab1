@@ -123,6 +123,10 @@ void mandelbrotThread(
 
     pthread_t workers[MAX_THREADS];
     WorkerArgs args[MAX_THREADS];
+    
+    #ifdef ENABLE_THREAD_TIMING
+        ThreadTiming::beginRun(numThreads);
+    #endif
 
     for (int i=0; i<numThreads; i++) {
         // TODO: Set thread arguments here.
