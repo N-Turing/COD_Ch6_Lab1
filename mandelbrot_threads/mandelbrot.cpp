@@ -93,7 +93,10 @@ void* workerThreadStart(void* threadArgs) {
 
     #ifdef ENABLE_THREAD_TIMING
      double threadEnd = CycleTimer::currentSeconds();
-     ThreadTiming::recordThreadTime(args->threadId, threadEnd - threadStart);
+     ThreadTiming::recordSample(
+         args->threadId,
+         threadStart,
+         threadEnd);
     #endif
 
     return NULL;
