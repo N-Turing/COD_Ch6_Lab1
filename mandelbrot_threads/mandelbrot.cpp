@@ -141,4 +141,8 @@ void mandelbrotThread(
     // wait for worker threads to complete
     for (int i=1; i<numThreads; i++)
         pthread_join(workers[i], NULL);
+
+    #ifdef ENABLE_THREAD_TIMING
+     ThreadTiming::endRun();
+    #endif
 }
